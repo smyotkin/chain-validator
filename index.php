@@ -1,5 +1,7 @@
 <?php
-    // AUTOLOAD Classes
+    /**
+     * AUTOLOAD
+     */
 
     spl_autoload_register(function($class) {
         $file = __DIR__ . '/' . str_replace('\\', '/', $class) . '.php';
@@ -8,7 +10,10 @@
             require_once $file;
     });
 
-    // FORM 1 - Create, validate and render
+    /**
+     * FORM 1
+     * Create, validate and render
+     */
 
     echo '<h1>Форма регистрации</h1>';
 
@@ -24,7 +29,10 @@
     $form1->printErrors();
     $form1->render();
 
-    // FORM 2 - Create, validate and render
+    /**
+     * FORM 2
+     * Create, validate and render
+     */
 
     echo '<h1>Форма поиска</h1>';
 
@@ -36,7 +44,3 @@
     $form2->validate('search');
     $form2->printErrors();
     $form2->render();
-
-    // echo '<pre>';
-    // print_r($form2->rules);
-    // echo '</pre>';
