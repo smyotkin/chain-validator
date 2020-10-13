@@ -106,3 +106,4 @@
             return empty($this->errors);
         }
     }
+    

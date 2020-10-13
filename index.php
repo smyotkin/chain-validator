@@ -44,3 +44,4 @@
     $form2->validate('search');
     $form2->printErrors();
     $form2->render();
+    

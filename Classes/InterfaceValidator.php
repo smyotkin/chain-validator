@@ -7,3 +7,4 @@
         public function customPattern($pattern);
         public function value($value);
     };
+    

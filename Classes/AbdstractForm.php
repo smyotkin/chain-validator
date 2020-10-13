@@ -23,3 +23,4 @@
         abstract public function element($element);
         abstract public function validate($name = false);
     }
+    
