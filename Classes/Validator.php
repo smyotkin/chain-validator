@@ -1,7 +1,8 @@
 <?php 
     namespace Classes;
 
-    class Validator implements InterfaceValidator {
+    class Validator implements InterfaceValidator
+    {
         public $patterns = [
             'tel'           => '[0-9+\s()\-]+',
             'text'          => '[\p{L}0-9\s\-.,;:!"%&()?+\'°#\/@]+',
@@ -11,50 +12,97 @@
         private $name;
         private $value = null;
 
-        public function name($name) {
+        /**
+         * Get name of field
+         *
+         * @param string $name
+         * @return this
+         */
+        public function name($name)
+        {
             $this->name = $name;
             return $this;
         }
 
-        public function pattern($patternName) {
+        /**
+         * Apply pattern from array of available patterns - $patterns
+         *
+         * @param string $patternName
+         * @return this
+         */
+        public function pattern($patternName)
+        {
             if (array_key_exists($patternName, $this->patterns)) {
                 $regex = '/^('.$this->patterns[$patternName].')$/u';
 
                 if ($this->value != '' && !preg_match($regex, $this->value))
-                    $this->errors[] = 'Field ' . $this->name . ' contains an error.';
+                    $this->errors[] = 'Field "' . $this->name . '" contains an error.';
             } else {
-                $this->errors[] = 'Not valid pattern on field ' . $this->name . '.';
+                $this->errors[] = 'Not valid pattern on field "' . $this->name . '".';
             }
 
             return $this;
         }
 
-        public function customPattern($pattern) {
+        /**
+         * Apply custom pattern from string
+         *
+         * @param string $pattern
+         * @return this
+         */
+        public function customPattern($pattern)
+        {
             $regex = '/^('.$pattern.')$/u';
 
-            if($this->value != '' && !preg_match($regex, $this->value))
-                $this->errors[] = 'Field ' . $this->name . ' contains an error.';
+            if ($this->value != '' && !preg_match($regex, $this->value))
+                $this->errors[] = 'Field "' . $this->name . '" contains an error.';
 
             return $this;
         }
 
-        public function value($value) {
+        /**
+         * Get value from field
+         *
+         * @param string $value
+         * @return this
+         */
+        public function value($value)
+        {
             $this->value = $value;
             return $this;
         }
 
-        public function required() {
+        /**
+         * Сheck if the field is required
+         *
+         * @return this
+         */
+        public function required()
+        {
             if (empty($this->value) || $this->value == null) {
-                $this->errors[] = 'Field ' . $this->name . ' is required';
+                $this->errors[] = 'Field "' . $this->name . '" is required';
             }            
             return $this;
         }
 
-        public function isSuccess() {
-            return empty($this->errors);
+        /**
+         * Return errors
+         *
+         * @return array
+         */
+        public function getError()
+        {
+            return $this->errors;
         }
 
-        public function getError() {
-            return $this->errors;
+        /**
+         * Return true if validation is success,
+         * otherwise return false.
+         * 
+         * @return bool
+         */
+        public function isSuccess()
+        {
+            return empty($this->errors);
         }
     }

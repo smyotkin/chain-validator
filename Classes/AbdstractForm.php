@@ -11,7 +11,8 @@
         public $values = [];
         public $post = [];
 
-        public function __construct($method = 'POST') {
+        public function __construct($method = 'POST')
+        {
             if ($method == 'POST' && !empty($_POST)) {
                 $this->values = $_POST;
             } elseif ($method == 'GET'  && !empty($_GET)) {
@@ -21,9 +22,7 @@
             }
         }
 
-        // abstract public function validate();
-        // abstract public function text();
-        // abstract public function password();
-        // abstract public function date();
-        // abstract public function textarea();
+        abstract public function name($name);
+        abstract public function element($element);
+        abstract public function validate($name = false);
     }
