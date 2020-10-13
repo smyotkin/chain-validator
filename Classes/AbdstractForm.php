@@ -1,11 +1,8 @@
 <?php
-    // namespace app\controllers;
     namespace Classes;
 
-    // use \App\Validator;
-
     abstract class AbdstractForm
-    { // текст, пароль, дата, e-mail, textarea
+    {
         public $fields = [];
         public $get = [];
         public $values = [];
