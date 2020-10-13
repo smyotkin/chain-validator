@@ -8,11 +8,11 @@
 
     $form = new Classes\Form('post');
 
-    $form->element('input')->setType('text')->setName('username')->setPattern('text')->setValue('Kirill')->setPlaceholder('Имя пользователя')->setRequired();
-    $form->element('input')->setType('text')->setName('age')->setCustomPattern('[0-9]+')->setValue('26')->setPlaceholder('Возраст');
-    $form->element('input')->setType('text')->setName('user_email')->setPattern('email')->setValue('smyotkin@gmail.com')->setPlaceholder('E-mail')->setRequired();
-    $form->element('input')->setType('text')->setName('telephone')->setPattern('tel')->setValue('7989123412323')->setPlaceholder('Телефон');
-    $form->element('input')->setType('password')->setName('password')->setPattern('text')->setValue('Pass')->setPlaceholder('Пароль')->setRequired();
+    $form->element('input')->type('text')->name('username')->pattern('text')->value('Kirill')->placeholder('Имя пользователя')->required();
+    $form->element('input')->type('text')->name('age')->customPattern('[0-9]+')->value('26')->placeholder('Возраст');
+    $form->element('input')->type('text')->name('user_email')->pattern('email')->value('smyotkin@gmail.com')->placeholder('E-mail')->required();
+    $form->element('input')->type('text')->name('telephone')->pattern('tel')->value('7989123412323')->placeholder('Телефон');
+    $form->element('input')->type('password')->name('password')->pattern('text')->value('Pass')->placeholder('Пароль')->required();
 
     $form->render();
 

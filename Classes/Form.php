@@ -21,22 +21,22 @@
             return $this;
         }
 
-        public function setType($type) {
+        public function type($type) {
             $this->elements[self::$count]['type'] = $type;
             return $this;
         }
 
-        public function setName($name) {
+        public function name($name) {
             $this->elements[self::$count]['name'] = $name;
             return $this;
         }
 
-        public function setPattern($patternName) {
+        public function pattern($patternName) {
             $this->elements[self::$count]['pattern'] = $patternName;
             return $this;
         }
 
-        public function setCustomPattern($patternName) {
+        public function customPattern($patternName) {
             $this->elements[self::$count]['customPattern'] = $patternName;
             return $this;
         }
@@ -46,17 +46,17 @@
         //     return $this;
         // }
 
-        public function setPlaceholder($placeholder) {
+        public function placeholder($placeholder) {
             $this->elements[self::$count]['placeholder'] = $placeholder;
             return $this;
         }
 
-        public function setValue($value) {
+        public function value($value) {
             $this->elements[self::$count]['value'] = $value;
             return $this;
         }
 
-        public function setRequired() {
+        public function required() {
             $this->elements[self::$count]['required'] = true;
             return $this;
         }
